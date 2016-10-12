@@ -13,10 +13,31 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var context: NSManagedObjectContext?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let modelURL = Bundle.main.url(forResource: "ContactListPro", withExtension: "momd")
+        let modelSchema = NSManagedObjectModel(contentsOf: modelURL!)
+        print("modeUrl : \(modelURL)")
+        print("modeSchema : \(modelSchema)")
+        
+        let storeCoordinator = NSPersistentStoreCoordinator(managedObjectModel: modelSchema!)
+        
+        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        let dbURL = documentURL.appendingPathComponent("contact.db")
+        
+        do{
+            try storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: nil)
+            
+            let objectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+            objectContext.persistentStoreCoordinator = storeCoordinator
+            self.context = objectContext
+        }
+        catch{
+            print("?")
+        }
         return true
     }
 

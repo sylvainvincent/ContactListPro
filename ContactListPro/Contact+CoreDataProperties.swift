@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Contact {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Contact> {
@@ -19,5 +18,6 @@ extension Contact {
     @NSManaged public var firstName: NSObject?
     @NSManaged public var lastName: NSObject?
     @NSManaged public var phoneNumber: NSObject?
+    @NSManaged public var email: NSObject?
 
 }

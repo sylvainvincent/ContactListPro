@@ -10,9 +10,22 @@ import UIKit
 
 class ContactViewController: UIViewController {
 
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    var firstName:String?
+    var lastName:String?
+    var phoneNumber:String?
+    var email:String?
+    var contact:Contact!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        firstNameLabel.text = contact!.firstName as! String?
+        lastNameLabel.text = contact!.lastName as! String?
+        phoneNumberLabel.text = contact!.phoneNumber as! String?
+        emailLabel.text = contact!.email as! String?
         // Do any additional setup after loading the view.
     }
 

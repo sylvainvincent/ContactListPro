@@ -13,6 +13,11 @@
 		19A3477D1D9D3E2A004091BA /* ContactListPro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19A3477B1D9D3E2A004091BA /* ContactListPro.xcdatamodeld */; };
 		19A3477F1D9D3E2A004091BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19A3477E1D9D3E2A004091BA /* Assets.xcassets */; };
 		19A347821D9D3E2A004091BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19A347801D9D3E2A004091BA /* LaunchScreen.storyboard */; };
+		19A3478D1D9D45BD004091BA /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A3478B1D9D45BD004091BA /* AddContactViewController.swift */; };
+		19A347911D9D533C004091BA /* Contact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A3478F1D9D533C004091BA /* Contact+CoreDataClass.swift */; };
+		19A347921D9D533C004091BA /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A347901D9D533C004091BA /* Contact+CoreDataProperties.swift */; };
+		19A347951D9D53A0004091BA /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A347931D9D53A0004091BA /* ContactViewController.swift */; };
+		19CD78601DAADF7A008D8918 /* ContactCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CD785F1DAADF7A008D8918 /* ContactCustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		19A3477E1D9D3E2A004091BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19A347811D9D3E2A004091BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19A347831D9D3E2A004091BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19A3478B1D9D45BD004091BA /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
+		19A3478F1D9D533C004091BA /* Contact+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataClass.swift"; sourceTree = "<group>"; };
+		19A347901D9D533C004091BA /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		19A347931D9D53A0004091BA /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		19CD785F1DAADF7A008D8918 /* ContactCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +50,8 @@
 		19A347681D9D3E2A004091BA = {
 			isa = PBXGroup;
 			children = (
+				19A3478F1D9D533C004091BA /* Contact+CoreDataClass.swift */,
+				19A347901D9D533C004091BA /* Contact+CoreDataProperties.swift */,
 				19A347731D9D3E2A004091BA /* ContactListPro */,
 				19A347721D9D3E2A004091BA /* Products */,
 			);
@@ -63,6 +75,9 @@
 				19A347801D9D3E2A004091BA /* LaunchScreen.storyboard */,
 				19A347831D9D3E2A004091BA /* Info.plist */,
 				19A3477B1D9D3E2A004091BA /* ContactListPro.xcdatamodeld */,
+				19A3478B1D9D45BD004091BA /* AddContactViewController.swift */,
+				19A347931D9D53A0004091BA /* ContactViewController.swift */,
+				19CD785F1DAADF7A008D8918 /* ContactCustomCell.swift */,
 			);
 			path = ContactListPro;
 			sourceTree = "<group>";
@@ -139,9 +154,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19A347921D9D533C004091BA /* Contact+CoreDataProperties.swift in Sources */,
+				19CD78601DAADF7A008D8918 /* ContactCustomCell.swift in Sources */,
+				19A347951D9D53A0004091BA /* ContactViewController.swift in Sources */,
 				19A347771D9D3E2A004091BA /* ViewController.swift in Sources */,
+				19A3478D1D9D45BD004091BA /* AddContactViewController.swift in Sources */,
 				19A347751D9D3E2A004091BA /* AppDelegate.swift in Sources */,
 				19A3477D1D9D3E2A004091BA /* ContactListPro.xcdatamodeld in Sources */,
+				19A347911D9D533C004091BA /* Contact+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +321,7 @@
 				19A347881D9D3E2A004091BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
