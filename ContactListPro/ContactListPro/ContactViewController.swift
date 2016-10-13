@@ -22,10 +22,15 @@ class ContactViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstNameLabel.text = contact!.firstName as! String?
-        lastNameLabel.text = contact!.lastName as! String?
-        phoneNumberLabel.text = contact!.phoneNumber as! String?
-        emailLabel.text = contact!.email as! String?
+        if contact != nil{
+            firstNameLabel.text = contact?.firstName as! String?
+            lastNameLabel.text = contact.lastName as! String?
+            phoneNumberLabel.text = contact.phoneNumber as! String?
+            emailLabel.text = contact.email as! String?
+        }else{
+            print("contact nul")
+        }
+       
         // Do any additional setup after loading the view.
     }
 

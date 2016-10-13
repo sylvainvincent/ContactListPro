@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ContactListPro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="storyboard" id="BYZ-38-t0r" customClass="ViewController" customModule="ContactListPro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -40,7 +40,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="xmx-Ob-DQu" id="PAo-tc-3su"/>
-                                            <segue destination="O8I-19-NkS" kind="show" id="HfC-jr-lDh"/>
+                                            <segue destination="O8I-19-NkS" kind="show" id="6IZ-VK-Kfj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -76,7 +76,7 @@
         <!--Contact View Controller-->
         <scene sceneID="dtG-pH-si1">
             <objects>
-                <viewController id="O8I-19-NkS" customClass="ContactViewController" customModule="ContactListPro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="A" id="O8I-19-NkS" customClass="ContactViewController" customModule="ContactListPro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ncp-y1-jJm"/>
                         <viewControllerLayoutGuide type="bottom" id="vnF-EM-Sqg"/>

@@ -14,8 +14,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     @IBOutlet weak var contactTableView: UITableView!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var contactList: [Contact]?
-    var contact : Contact!
+    var contactList = [Contact]()
     var test:String?
     
     
@@ -31,13 +30,13 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         do{
             let contacts = try self.context.execute(request) as! NSAsynchronousFetchResult<Contact>
             
-            contactList = contacts.finalResult
+            contactList = contacts.finalResult!
             
-            if(contactList != nil){
+            /*if(contactList != nil){
                 for c in contactList!{
                     print("\(c.firstName!) \(c.lastName!)")
                 }
-            }
+            }*/
         } catch{
             print("Erreur")
         }
@@ -56,38 +55,42 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactList!.count
+        return contactList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.contactTableView.dequeueReusableCell(withIdentifier: "Cell") as! ContactCustomCell
         
-        var name = "\(contactList![indexPath.row].firstName!)"
-        name += " \(contactList![indexPath.row].lastName!)"
+        var name = "\(contactList[indexPath.row].firstName!)"
+        name += " \(contactList[indexPath.row].lastName!)"
         
         cell.nameLabel?.text = name
         return cell
     }
     
-   /* func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contactView = self.storyboard?.instantiateViewController(withIdentifier: "ContactViewController") as! ContactViewController
-        contactView.firstNameLabel!.text = (self.contactList?[indexPath.row].firstName) as?String
+    /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let contactView = self.storyboard?.instantiateViewController(withIdentifier: "A") as! ContactViewController
+        contact = (self.contactList?[indexPath.row])
+        // contactView.firstNameLabel!.text = (self.contactList?[indexPath.row].firstName) as?String
         self.navigationController?.pushViewController(contactView, animated: true)
-    } */
+    }*/
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    /*func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let contactView = self.storyboard?.instantiateViewController(withIdentifier: "ContactViewController") as! ContactViewController
         contact = (self.contactList?[indexPath.row])
+        print("TEST")
+        print("Contact \(contact)")
+        print("Prénom : \(contact.firstName)")
        // contactView.lastNameLabel.text = (self.contactList?[indexPath.row].lastName) as? String
        // contactView.phoneNumberLabel.text = (self.contactList?[indexPath.row].phoneNumber) as? String
         self.navigationController?.pushViewController(contactView, animated: true)
 
     }
-    
+    */
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete{
-            context.delete((self.contactList?[indexPath.row])!)
+            context.delete((self.contactList[indexPath.row]))
             
             do{
                 try context.save()
@@ -103,11 +106,14 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ContactViewController"{
-            if let contactView = segue.destination as? ContactViewController{
-                contactView.contact = self.contact
-            }
+        
+        var indexPath = self.contactTableView.indexPathForSelectedRow!
+        var contact = contactList[indexPath.row]
+   
+        if let contactView = segue.destination as? ContactViewController{
+            contactView.contact = contact
         }
+        
     }
     
     override func didReceiveMemoryWarning() {
