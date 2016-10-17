@@ -30,13 +30,22 @@ class AddContactViewController: UIViewController {
     
     @IBAction func addContact(_ sender: UIButton) {
         
-        if(firstNameField.text == "" || phoneNumberField.text == ""){
-                let alert = UIAlertController(title: "Informations", message: "Veillez remplir les champs obligatoires", preferredStyle: UIAlertControllerStyle.alert)
+        if firstNameField.text == "" || phoneNumberField.text == "" {
+      
+                let alert = UIAlertController(title: "Informations", message: "Veuillez remplir les champs obligatoires", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
-           
+            
+                
+
         }else{
-           self.addNewPerson()
+            if Int(phoneNumberField.text!) != nil{
+                self.addNewPerson()
+            }else{
+                let alert = UIAlertController(title: "Informations", message: "Le champ téléphone ne doit contenir que des nombres", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
         
     }

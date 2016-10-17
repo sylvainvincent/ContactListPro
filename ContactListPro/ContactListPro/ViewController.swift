@@ -68,6 +68,10 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         return cell
     }
     
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Supprimer"
+    }
+    
     /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let contactView = self.storyboard?.instantiateViewController(withIdentifier: "A") as! ContactViewController
         contact = (self.contactList?[indexPath.row])
@@ -107,11 +111,13 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        var indexPath = self.contactTableView.indexPathForSelectedRow!
-        var contact = contactList[indexPath.row]
+        if segue.identifier == "contactView" {
+            var indexPath = self.contactTableView.indexPathForSelectedRow!
+            let contact = contactList[indexPath.row]
    
-        if let contactView = segue.destination as? ContactViewController{
-            contactView.contact = contact
+            if let contactView = segue.destination as? ContactViewController{
+                contactView.contact = contact
+            }
         }
         
     }

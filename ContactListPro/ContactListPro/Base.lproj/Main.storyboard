@@ -40,7 +40,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="xmx-Ob-DQu" id="PAo-tc-3su"/>
-                                            <segue destination="O8I-19-NkS" kind="show" id="6IZ-VK-Kfj"/>
+                                            <segue destination="O8I-19-NkS" kind="show" identifier="contactView" id="6IZ-VK-Kfj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -73,7 +73,7 @@
             </objects>
             <point key="canvasLocation" x="-92" y="91.304347826086968"/>
         </scene>
-        <!--Contact View Controller-->
+        <!--Contact-->
         <scene sceneID="dtG-pH-si1">
             <objects>
                 <viewController storyboardIdentifier="A" id="O8I-19-NkS" customClass="ContactViewController" customModule="ContactListPro" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,31 +99,33 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Téléphone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARv-uB-xaQ" userLabel="phoneNumberLabel">
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksh-6Y-jUy" userLabel="emailLabel">
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVQ-zD-h8X">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Phone"/>
+                                                <connections>
+                                                    <action selector="actionPhone:" destination="O8I-19-NkS" eventType="touchUpInside" id="3Ar-81-Jd0"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="ksh-6Y-jUy" secondAttribute="bottom" id="0AM-0t-UTx"/>
+                                            <constraint firstItem="CVQ-zD-h8X" firstAttribute="centerX" secondItem="xTZ-7b-WYD" secondAttribute="centerX" id="1N7-3J-ibk"/>
                                             <constraint firstItem="WQN-Wr-nbH" firstAttribute="centerX" secondItem="xTZ-7b-WYD" secondAttribute="centerX" id="2su-vr-M6L"/>
                                             <constraint firstItem="RNR-QN-fuF" firstAttribute="top" secondItem="xTZ-7b-WYD" secondAttribute="top" id="8bu-xB-3aY"/>
-                                            <constraint firstItem="WQN-Wr-nbH" firstAttribute="top" secondItem="RNR-QN-fuF" secondAttribute="top" constant="40" id="D7q-26-gT9"/>
-                                            <constraint firstItem="ksh-6Y-jUy" firstAttribute="top" secondItem="ARv-uB-xaQ" secondAttribute="top" constant="40" id="Hva-qM-buN"/>
-                                            <constraint firstItem="ARv-uB-xaQ" firstAttribute="top" secondItem="WQN-Wr-nbH" secondAttribute="top" constant="40" id="NW8-nm-rcs"/>
+                                            <constraint firstItem="CVQ-zD-h8X" firstAttribute="top" secondItem="WQN-Wr-nbH" secondAttribute="bottom" constant="20" id="Edb-GC-Rvu"/>
                                             <constraint firstItem="ksh-6Y-jUy" firstAttribute="centerX" secondItem="xTZ-7b-WYD" secondAttribute="centerX" id="YdI-xN-F60"/>
                                             <constraint firstItem="RNR-QN-fuF" firstAttribute="centerX" secondItem="xTZ-7b-WYD" secondAttribute="centerX" id="alo-9i-Lfb"/>
-                                            <constraint firstItem="ARv-uB-xaQ" firstAttribute="centerX" secondItem="xTZ-7b-WYD" secondAttribute="centerX" id="gNg-n2-X8T"/>
+                                            <constraint firstItem="ksh-6Y-jUy" firstAttribute="top" secondItem="CVQ-zD-h8X" secondAttribute="bottom" constant="20" id="x9i-5T-Yqh"/>
+                                            <constraint firstItem="WQN-Wr-nbH" firstAttribute="top" secondItem="RNR-QN-fuF" secondAttribute="bottom" constant="20" id="xYG-9X-lwf"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.68655119659999997" green="0.72409583190000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.80277166628428021" green="0.87194381476683935" blue="0.84519887564023666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="xTZ-7b-WYD" firstAttribute="centerY" secondItem="mrN-Vq-BYl" secondAttribute="centerY" id="5Jj-cJ-MQ8"/>
                                     <constraint firstAttribute="height" constant="240" id="Q0Y-CS-saD"/>
@@ -131,26 +133,50 @@
                                     <constraint firstItem="xTZ-7b-WYD" firstAttribute="width" secondItem="mrN-Vq-BYl" secondAttribute="width" id="ko5-Ye-SAx"/>
                                     <constraint firstAttribute="width" constant="240" id="m07-Ze-g6w"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="alW-sE-yE5">
+                                <frame key="frameInset" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Appeller" id="2rG-Nk-whD"/>
+                                    <tabBarItem title="Envoyer Sms" id="hfX-cP-xc9"/>
+                                    <tabBarItem title="Modifier" id="aa1-8g-OCj"/>
+                                    <tabBarItem systemItem="more" id="qs0-WE-5bL"/>
+                                </items>
+                            </tabBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92445485736492983" green="1" blue="0.96764711764367506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mrN-Vq-BYl" firstAttribute="centerX" secondItem="Kiq-lZ-dOw" secondAttribute="centerX" id="pNX-nx-htb"/>
                             <constraint firstItem="mrN-Vq-BYl" firstAttribute="centerY" secondItem="Kiq-lZ-dOw" secondAttribute="centerY" id="zAL-Ud-DF5"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Contact" id="Viy-hA-SXq">
+                        <barButtonItem key="rightBarButtonItem" title="Partager" style="plain" id="hEs-AG-sIm">
+                            <connections>
+                                <action selector="share:" destination="O8I-19-NkS" id="Npf-li-xEE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="callActionButton" destination="2rG-Nk-whD" id="8SS-Xg-hx2"/>
                         <outlet property="emailLabel" destination="ksh-6Y-jUy" id="kKX-dW-cU2"/>
                         <outlet property="firstNameLabel" destination="RNR-QN-fuF" id="XeG-DU-S05"/>
                         <outlet property="lastNameLabel" destination="WQN-Wr-nbH" id="w4v-BJ-WOO"/>
-                        <outlet property="phoneNumberLabel" destination="ARv-uB-xaQ" id="WZb-dJ-5vK"/>
+                        <outlet property="phoneNumberButton" destination="CVQ-zD-h8X" id="Jpp-FH-2Bj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gd-be-En8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1151" y="416"/>
         </scene>
-        <!--Add Contact View Controller-->
+        <!--Ajouter un contact-->
         <scene sceneID="Abz-Rf-5e4">
             <objects>
                 <viewController id="s2x-cg-89Z" customClass="AddContactViewController" customModule="ContactListPro" customModuleProvider="target" sceneMemberID="viewController">
@@ -213,7 +239,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.79689958101639591" green="0.96905592495685378" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.91642457246780396" green="0.95223516225814819" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="VSE-lU-xJh" firstAttribute="centerX" secondItem="w5R-NE-Wie" secondAttribute="centerX" id="Gff-6a-Kfr"/>
                             <constraint firstItem="oPM-cD-6bb" firstAttribute="centerY" secondItem="w5R-NE-Wie" secondAttribute="centerY" id="OrD-40-wg7"/>
@@ -223,6 +249,7 @@
                             <constraint firstItem="oPM-cD-6bb" firstAttribute="centerX" secondItem="w5R-NE-Wie" secondAttribute="centerX" id="sv3-Je-41F"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Ajouter un contact" id="wBw-a1-UIl"/>
                     <connections>
                         <outlet property="addButton" destination="VSE-lU-xJh" id="poW-P2-zME"/>
                         <outlet property="emailField" destination="bK8-5Y-RAg" id="vt5-pQ-XjW"/>
